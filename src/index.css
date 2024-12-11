@@ -4,9 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bokor&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
 
 body {
   margin: 0;
   
 }
+
+
+
 

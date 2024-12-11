@@ -1,0 +1,203 @@
+.sunny-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    margin-top: 3.5rem;
+    z-index: 1;
+  }
+  
+  /* Sun Animation */
+  .sun {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #ffd700;
+    animation: sun-glow 3s ease-in-out infinite;
+  }
+  
+  @keyframes sun-glow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  /* Bird Animation */
+  .bird-container {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    transform-origin: 50% 50%;
+    animation-name: fly-cycle;
+    animation-timing-function: cubic-bezier(0.9, 0.24, 0.62, 0.79);
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  
+  .bird-container:nth-child(2) { 
+    animation: fly-right-one 15s linear infinite;
+    top: 20%;
+  }
+  
+  .bird-container:nth-child(3) { 
+    animation: fly-right-two 17s linear infinite;
+    top: 30%;
+  }
+  
+  .bird-container:nth-child(4) { 
+    animation: fly-right-three 16s linear infinite;
+    top: 45%;
+  }
+  
+  .bird-container:nth-child(5) { 
+    animation: fly-right-four 20s linear infinite;
+    top: 25%;
+  }
+  
+  .bird-container:nth-child(6) { 
+    animation: fly-right-five 22s linear infinite;
+    top: 35%;
+  }
+  
+  .bird {
+    position: relative;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .bird::before,
+  .bird::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 3px;
+    background: black;
+    transform-origin: 0% 50%;
+    animation: wing-flap 0.8s ease-in-out infinite;
+  }
+  
+  .bird::before {
+    top: 8px;
+    transform: rotate(-30deg);
+  }
+  
+  .bird::after {
+    top: 8px;
+    transform: rotate(30deg);
+  }
+  
+  @keyframes wing-flap {
+    0%, 100% { transform: rotate(-30deg); }
+    50% { transform: rotate(30deg); }
+  }
+  
+  @keyframes fly-cycle {
+    100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+  
+  @keyframes fly-right-one {
+    0% { left: -10%; transform: scale(0.3); }
+    100% { left: 110%; transform: scale(0.3); }
+  }
+  
+  @keyframes fly-right-two {
+    0% { left: -20%; transform: scale(0.4); }
+    100% { left: 100%; transform: scale(0.4); }
+  }
+  
+  @keyframes fly-right-three {
+    0% { left: -30%; transform: scale(0.5); }
+    100% { left: 110%; transform: scale(0.5); }
+  }
+  
+  @keyframes fly-right-four {
+    0% { left: -40%; transform: scale(0.3); }
+    100% { left: 100%; transform: scale(0.3); }
+  }
+  
+  @keyframes fly-right-five {
+    0% { left: -50%; transform: scale(0.4); }
+    100% { left: 110%; transform: scale(0.4); }
+  }
+  
+  /* Cloud Styles */
+  .cloud {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    border-radius: 20px;
+    animation: move-cloud linear infinite;
+    opacity: 0.8;
+  }
+  
+  .cloud::before,
+  .cloud::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+  }
+  
+  .cloud::before {
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    left: 10px;
+  }
+  
+  .cloud::after {
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    left: 50px;
+  }
+  
+  .cloud:nth-child(6) {
+    top: 10%;
+    animation-duration: 35s;
+  }
+  
+  .cloud:nth-child(7) {
+    top: 20%;
+    animation-duration: 45s;
+    animation-delay: -10s;
+  }
+  
+  .cloud:nth-child(8) {
+    top: 30%;
+    animation-duration: 40s;
+    animation-delay: -5s;
+  }
+  
+  @keyframes move-cloud {
+    from { left: -150px; }
+    to { left: 100%; }
+  }
+  
+  /* Dark mode modifications */
+  .dark .sun {
+    background: #ffa500;
+    box-shadow: 0 0 50px #ffa500;
+  }
+  
+  .dark .cloud {
+    background: #4a5568;
+    opacity: 0.6;
+  }
+   
+  .dark .cloud::before,
+  .dark .cloud::after {
+    background: #4a5568;
+  }
+  
+  .dark .bird::before,
+  .dark .bird::after {
+    background: #4a5568;
+  }
+  
