@@ -4,6 +4,7 @@ import { addPhotos, removePhoto, clearPhotos, selectPhotos } from './features/ph
 import { PhotoViewer } from './PhotoViewer';
 import { OpenFeature } from '@openfeature/react-sdk';
 import { Context } from './Home';
+import { Tooltip } from '@mui/material';
 
 export const Photos = () => {
     const dispatch = useDispatch();
@@ -24,8 +25,8 @@ export const Photos = () => {
     }, [getPhotoFlag]);
 
     useEffect(() => {
-        if(!premium) dispatch(clearPhotos());
-    },[premium,dispatch]);
+        if (!premium) dispatch(clearPhotos());
+    }, [premium, dispatch]);
 
 
     const handleFileUpload = useCallback((event) => {
@@ -54,16 +55,17 @@ export const Photos = () => {
 
     return (
         <div className="container mx-auto max-w-7xl p-5 mt-[3.5rem] min-h-[calc(100dvh-3.5rem)] w-[100dvw] overflow-y-auto">
-            <div className="mb-5 text-center">
-                <input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleFileUpload}
-                    className="cursor-pointer border-2 border-dashed border-gray-300 rounded-md p-2.5 hover:border-gray-400 transition-colors duration-300"
-                />
-            </div>
-
+            <Tooltip title={`${photos.length===3 ? 'You have reached the limit of 3 photos. Subscribe to premium !!!' : 'Upload photos'}`} placement='top'>
+                <div className="mb-5 text-center">
+                    <input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={handleFileUpload}
+                        className="cursor-pointer border-2 border-dashed border-gray-300 rounded-md p-2.5 hover:border-gray-400 transition-colors duration-300"
+                    />
+                </div>
+            </Tooltip>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5">
                 {photos.map((photo) => (
                     <div

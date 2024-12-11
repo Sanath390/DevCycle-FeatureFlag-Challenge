@@ -1,10 +1,11 @@
 import { Article } from "./Article";
 import { useDispatch, useSelector } from "react-redux";
-import { addArticle, removeLastArticle, selectArticles,clearArticles } from "./features/articles/articlesSlice";
+import { addArticle, removeLastArticle, selectArticles, clearArticles } from "./features/articles/articlesSlice";
 import { articlesAdd, articlesRemove } from "./features/premium/premiumSlice";
 import { useEffect, useState, useCallback, useContext } from "react";
 import { OpenFeature } from "@openfeature/react-sdk";
 import { Context } from "./Home";
+import { Tooltip } from "@mui/material";
 
 export const Articles = () => {
     const dispatch = useDispatch();
@@ -20,15 +21,16 @@ export const Articles = () => {
         if (result === 'unlimited' || premium) setFlag(1e10);
         else setFlag(Number(result));
         setComparison(Number(flag) > articlesPremium);
-    }, [client, flag, articlesPremium, premium]);
+        console.log(comparison);
+    }, [client, flag, articlesPremium, premium,comparison]);
 
     useEffect(() => {
         getArticleFlag();
     }, [getArticleFlag, userName]);
 
     useEffect(() => {
-        if(!premium)dispatch(clearArticles());
-    }, [premium,dispatch]);
+        if (!premium) dispatch(clearArticles());
+    }, [premium, dispatch]);
 
     const handleAdd = () => {
         dispatch(addArticle());
@@ -42,13 +44,15 @@ export const Articles = () => {
         <div className="min-h-[calc(100dvh-3.5rem)] w-[100dvw] mt-[3.5rem] p-2 
             dark:bg-gray-800 dark:text-white font-montserrat overflow-y-auto">
             <div>
-                <button
-                    onClick={() => { handleAdd(); dispatch(articlesAdd()) }}
-                    className={`${comparison ? '' : 'pointer-events-none cursor-not-allowed'} border-2 border-green-400 bg-green-500 text-white 
+                <Tooltip title={`${comparison ? 'Click to add' : 'Subscribe to premium for more articles !!!'}`} placement="right">
+                    <button
+                        onClick={() => { if(comparison){handleAdd(); dispatch(articlesAdd())} }}
+                        className={`${comparison ? '' : 'cursor-not-allowed'} border-2 border-green-400 bg-green-500 text-white 
                         rounded-xl p-1 font-bold h-9 w-[4rem] ml-2`}
-                >
-                    +Add
-                </button>
+                    >
+                        +Add
+                    </button>
+                </Tooltip>
                 <button
                     onClick={() => { handleRemove(); dispatch(articlesRemove()) }}
                     className="border-2 border-green-400 bg-green-500 text-white 
