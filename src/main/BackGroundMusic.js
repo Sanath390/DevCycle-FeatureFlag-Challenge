@@ -201,10 +201,10 @@ const BackgroundMusic = ({ volume = 0.3 }) => {
             <Tooltip title={`${premium ? 'Choose a genre' : 'Subscribe to premium to choose a genre !'}`}>
                 <div className={`${showGenre ? 'block' : 'hidden'}  bottom-16 right-8 fixed mb-1 w-48 bg-white border text-black border-gray-300 rounded-lg shadow-lg z-10`}>
                     <ul className="py-1">
-                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('chill') }} className={`${allowMusicGenre ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Chill</li>
-                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('jazz') }} className={`${allowMusicGenre ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Jazz</li>
-                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('disco') }} className={`${allowMusicGenre ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Disco</li>
-                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('sad') }} className={`${allowMusicGenre ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Sad</li>
+                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('chill') }} className={`${premium ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Chill</li>
+                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('jazz') }} className={`${premium ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Jazz</li>
+                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('disco') }} className={`${premium ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Disco</li>
+                        <li onClick={() => { if (allowMusicGenre && premium) getSongsForGenre('sad') }} className={`${premium ? 'cursor-pointer' : 'cursor-not-allowed'} px-4 py-2 hover:bg-gray-100 `}>Sad</li>
                     </ul>
                 </div>
             </Tooltip>
