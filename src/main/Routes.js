@@ -3,7 +3,6 @@ import { Home } from "./Home";
 import { AboutMe } from "./AboutMe";
 import { Articles } from "./Articles";
 import { Photos } from "./Photos";
-import App from "../App";
 import { RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([

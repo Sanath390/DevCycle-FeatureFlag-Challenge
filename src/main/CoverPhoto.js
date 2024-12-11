@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { setCoverPhoto, setTextInput, selectCoverPhoto, selectTextInput } from './features/userData/userDataSlice';
 
