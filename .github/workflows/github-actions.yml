@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  dvc-code-usages:
+    runs-on: ubuntu-latest
+    name: Fetch DevCycle Code Usages
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: DevCycleHQ/feature-flag-code-usage-action@v1.1.6
+        with:
+          github-token: ${{ secrets.DEVCYCLE_GITHUB_TOKEN }}
+          client-id: ${{ secrets.DVC_CLIENT_ID }}
+          client-secret: ${{ secrets.DVC_CLIENT_SECRET }}
+          project-key: freelancer-solo-team
