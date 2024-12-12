@@ -5,3 +5,4 @@ Also it includes premium simulation to restrict the usage.
 Click on "Go Premium" to experience the full capacity of the app.
 
 Technology used: React,Redux,Tailwind,MUI and JSX.
+Hosting server: Netlify.
