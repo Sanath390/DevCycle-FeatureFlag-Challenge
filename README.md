@@ -1,3 +1,7 @@
-Build an app that showcases the most unique, creative, or fun way to use feature flags in an application by leveraging a DevCycle SDK, OpenFeature Provider or the API!
+The app was built while attending a hackathon hosted at DEV community website. 
 
-Feature flags are great for toggling things on and off, but this challenge is about exploring how they can bring your app to life in more fun and imaginative ways.
+This app is a customisable personal blog creator. It provides the options to choose weather, themes and others customisable features.
+Also it includes premium simulation to restrict the usage. 
+Click on "Go Premium" to experience the full capacity of the app.
+
+Technology used: React,Redux,Tailwind,MUI and JSX.
